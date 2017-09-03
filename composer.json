@@ -1,0 +1,21 @@
+{
+    "name": "keyurpatel90/module-shopfinder",
+    "description": "Shopfinder module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "email": "keyur_patel90@yahoo.com",
+            "name": "Keyur Patel"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Keyurpatel90\\Shopfinder\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
