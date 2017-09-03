@@ -11,4 +11,4 @@ php bin / magento setup: upgrade
 ```
 ```sh
 php bin / magento cache: flush
-```sh
+```
