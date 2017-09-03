@@ -1,7 +1,7 @@
 # shopfinder
 Magento 2 Shopfinder module
 ```sh
-composer require keyurpatel90/module-shopfinder master 
+composer require keyurpatel90/module-shopfinder
 ```
 ```sh
 composer update 
