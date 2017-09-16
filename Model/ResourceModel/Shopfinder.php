@@ -54,7 +54,8 @@ class Shopfinder extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
     
     public function saveStores($oldStores,$newStores,$shofinderId){
-      
+            
+       
                 $table = $this->getTable('shopfinder_store');
 
                 $delete = array_diff($oldStores, $newStores);
@@ -65,7 +66,7 @@ class Shopfinder extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
                     ];
                     $this->getConnection()->delete($table, $where);
                 }
-
+                
                 $insert = array_diff($newStores, $oldStores);
                 if ($insert) {
                     $data = [];
@@ -77,6 +78,7 @@ class Shopfinder extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
                     }
                     $this->getConnection()->insertMultiple($table, $data);
                 }
+                
     }
     
     public function deleteStores($shopfinderId){

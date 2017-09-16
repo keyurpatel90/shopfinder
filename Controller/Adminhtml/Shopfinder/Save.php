@@ -68,13 +68,6 @@ class Save extends \Magento\Backend\App\Action
             if (!$model->getShopfinderId() && $id) {
                 $this->messageManager->addErrorMessage(__('This Shopfinder no longer exists.'));
                 return $resultRedirect->setPath('*/*/');
-            }else if(is_object($model) && !is_null($model)){
-                // code to save stores
-                 
-                $oldStores = $this->resourceShopfinder->lookupStoreIds((int)$id);    
-                $newStores = (array) $data["storeview"];
-                $this->resourceShopfinder->saveStores($oldStores,$newStores,$id);
-               
             }
                       
              $image = $this->uploader->uploadFileAndGetName('image', $data);
@@ -83,6 +76,13 @@ class Save extends \Magento\Backend\App\Action
         
             try {
                 $model->save();
+                if(!empty($model->getShopfinderId())){
+                    // code to save stores 
+                    $oldStores = $this->resourceShopfinder->lookupStoreIds((int)$model->getShopfinderId());    
+                    $newStores = (array) $data["storeview"];
+                    $this->resourceShopfinder->saveStores($oldStores,$newStores,$model->getShopfinderId());
+
+                }
                 $this->messageManager->addSuccessMessage(__('You saved the Shopfinder.'));
                 $this->dataPersistor->clear('keyurpatel90_shopfinder_shopfinder');
         
